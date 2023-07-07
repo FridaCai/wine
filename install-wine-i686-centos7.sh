@@ -35,6 +35,13 @@ yum erase wine wine-*
 
 echo "Install wine building tools..." | tee -a $log
 
+
+
+
+
+
+
+
 yum install samba-winbind-clients -y 2>&1 >>$log
 yum groupinstall 'Development Tools' -y 2>&1 >> $log
 yum install libjpeg-turbo-devel libtiff-devel freetype-devel -y 2>&1 >> $log
@@ -47,6 +54,13 @@ yum install openldap-devel libxslt-devel libXcursor-devel libXi-devel libXxf86vm
 
 yum install glibc-devel.i686 dbus-devel.i686 freetype-devel.i686 pulseaudio-libs-devel.i686 libX11-devel.i686 mesa-libGLU-devel.i686 libICE-devel.i686 libXext-devel.i686 libXcursor-devel.i686 libXi-devel.i686 libXxf86vm-devel.i686 libXrender-devel.i686 libXinerama-devel.i686 libXcomposite-devel.i686 libXrandr-devel.i686 mesa-libGL-devel.i686 mesa-libOSMesa-devel.i686 libxml2-devel.i686 libxslt-devel.i686 zlib-devel.i686 gnutls-devel.i686 ncurses-devel.i686 sane-backends-devel.i686 libv4l-devel.i686 libgphoto2-devel.i686 libexif-devel.i686 lcms2-devel.i686 gettext-devel.i686 isdn4k-utils-devel.i686 cups-devel.i686 fontconfig-devel.i686 gsm-devel.i686 libjpeg-turbo-devel.i686 pkgconfig.i686 libtiff-devel.i686 unixODBC.i686 openldap-devel.i686 alsa-lib-devel.i686 audiofile-devel.i686 freeglut-devel.i686 giflib-devel.i686 gstreamer-devel.i686 gstreamer-plugins-base-devel.i686 libXmu-devel.i686 libXxf86dga-devel.i686 libieee1284-devel.i686 libpng-devel.i686 librsvg2-devel.i686 libstdc++-devel.i686 libusb-devel.i686 unixODBC-devel.i686 qt-devel.i686 libpcap-devel.i686 -y 2>&1 >> $log
 
+
+
+
+
+
+
+
 if [[ "${wine2up}" =~ "${vermajor}" ]]; then
   # for wine 2 and up
   # Thanks to gretzware https://www.systutorials.com/install-32-bit-wine-1-8-centos-7/#comment-157977
@@ -55,6 +69,10 @@ if [[ "${wine2up}" =~ "${vermajor}" ]]; then
   # Thanks to gretzware https://www.systutorials.com/install-32-bit-wine-1-8-centos-7/#comment-158134
   yum install libXfixes-devel.{x86_64,i686}  -y 2>&1 >> $log
 fi
+
+
+
+
 
 echo "Download and unpack the wine source package..." 2>&1 | tee -a $log
 
@@ -66,6 +84,11 @@ elif [[ "${wine2up}" =~ "${vermajor}" ]]; then
   wget http://dl.winehq.org/wine/source/${verurlstr}/wine-${ver}.tar.xz -O wine-${ver}.tar.xz 2>&1 >> $log
   tar xf wine-${ver}.tar.xz 2>&1 >> $log
 fi
+
+
+
+
+
 
 echo "Build wine..." 2>&1 | tee -a $log
 cd wine-${ver}/ 2>&1 >> $log
